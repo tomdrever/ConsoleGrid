@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace ConsoleGrid
 {
-    public class Room
+    public class Room : MultiTile
     {
-        public List<List<Tile>> Grid;
+        public List<List<Tile>> Grid { get; set; }
 
         public Room(int x, int y, CharSet charSet, bool bordered)
         {
@@ -39,11 +35,11 @@ namespace ConsoleGrid
                 {
                     if (charGrid[i][j] == "w")
                     {
-                        room.Grid[i][j] = new Tile {Background = charSet.Background, Foreground = charSet.Wall};
+                        room.Grid[i][j] = new Tile(charSet) {Foreground = charSet.Wall};
                     }
                     else
                     {
-                        room.Grid[i][j] = new Tile {Background = charSet.Background};
+                        room.Grid[i][j] = new Tile(charSet);
                     }
                 }
             }
@@ -61,7 +57,7 @@ namespace ConsoleGrid
                 var list = new List<Tile>();
                 for (var j = 0; j < y; j++)
                 {
-                    var t = new Tile { Background = charSet.Background };
+                    var t = new Tile(charSet);
 
                     //Border grid with walls
                     if (bordered && (i == 0 || i == x - 1 || j == 0 || j == y - 1))
@@ -96,14 +92,31 @@ namespace ConsoleGrid
             //Place door in lowest available row
             for (var i = grid.Count - 1; i >= 0; i--)
             {
-                var enumerable = grid[i].FindAll(tile => tile.Foreground != charSet.Wall && tile.Foreground != charSet.Item);
+                //Find all tiles on lowest row that aren't items
+                var tiles = grid[i].FindAll(tile => tile.Foreground != charSet.Wall && tile.Foreground != charSet.Item);
 
-                if (enumerable.Count <= r.Next(0, enumerable.Count)) continue;
-                enumerable[r.Next(0, enumerable.Count)].Foreground = charSet.Door;
+                //Select one at random to be the door
+                if (tiles.Count <= r.Next(0, tiles.Count)) continue;
+                grid = LoadMultiTile(new MultiTileObject(charSet, charSet.Door, 2, 1), r.Next(1, tiles.Count - 1), i, grid);
                 break;
             }
 
             return grid;
-        } 
+        }
+
+        private static List<List<Tile>> LoadMultiTile(MultiTile multiTile, int x, int y, List<List<Tile>> grid)
+        {
+            foreach (var row in multiTile.Grid)
+            {
+                foreach (var tile in row)
+                {
+                    grid[y][x] = tile;
+                    x++;
+                }
+                y++;
+            }
+
+            return grid;
+        }
     }
 }

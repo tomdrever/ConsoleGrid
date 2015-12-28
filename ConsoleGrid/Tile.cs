@@ -11,5 +11,11 @@ namespace ConsoleGrid
         public char? Player;
         public char? Foreground;
         public char Background;
+
+        public Tile(CharSet charSet)
+        {
+            //Load tile's default
+            Background = charSet.Background;
+        }
     }
 }
