@@ -1,8 +1,0 @@
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\bin\Debug\ConsoleGrid.exe.config
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\bin\Debug\ConsoleGrid.exe
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\bin\Debug\ConsoleGrid.pdb
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\obj\Debug\ConsoleGrid.csprojResolveAssemblyReference.cache
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\obj\Debug\ConsoleGrid.exe
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\obj\Debug\ConsoleGrid.pdb
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\bin\Debug\Newtonsoft.Json.dll
-F:\ProjectDirectory\ConsoleGrid\ConsoleGrid\bin\Debug\Newtonsoft.Json.xml
