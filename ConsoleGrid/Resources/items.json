@@ -1,0 +1,12 @@
+[
+    {"name":"Greater axe of choppiness", "power":"4", "protection":"1"},
+    {"name":"Legendary broadsword", "power":"7", "protection":"3"},
+    {"name":"Bow of Xtreme coolness", "power":"7", "protection":"1"},
+    {"name":"Small stick", "power":"1", "protection":"1"},
+    {"name":"A towel", "power":"5", "protection":"9"},
+    {"name":"Diamond pickaxe", "power":"3", "protection":"3"},
+    {"name":"Blade of the night", "power":"7", "protection":"2"},
+    {"name":"7% of a uranium fuel rod", "power":"2", "protection":"2", "execrable":"true"},
+    {"name":"Generic comic item", "power":"3", "protection":"3"},
+    {"name":"Satan's dagger", "power":"6", "protection":"2"}
+]
