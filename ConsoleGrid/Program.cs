@@ -12,7 +12,7 @@ namespace ConsoleGrid
 
         private static readonly Player Player = new Player();
 
-        private static readonly CharSet CharSet = CharSet.DefaultSet();
+        private static readonly CharSet CharSet = CharSet.LetterSet();
         private static readonly ColourSet ColourSet = ColourSet.DefaultSet();
 
         private static void Main(string[] args)
@@ -21,7 +21,7 @@ namespace ConsoleGrid
 
             ItemManager.LoadItems();
 
-            var r = Room.RandomRoom(CharSet.DefaultSet());
+            var r = Room.RandomRoom(CharSet);
 
             _grid = r.Grid;
             _grid[_currentPosition[1]][_currentPosition[0]].Player = CharSet.Player;

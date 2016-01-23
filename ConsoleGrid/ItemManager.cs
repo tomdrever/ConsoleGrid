@@ -17,9 +17,10 @@ namespace ConsoleGrid
 
         public static void LoadItems()
         {
-            var sr = new StreamReader("F:/ProjectDirectory/ConsoleGrid/ConsoleGrid/Resources/Items.json");
-
-            _items = JsonConvert.DeserializeObject<Item[]>(sr.ReadToEnd());
+            using (var sr = new StreamReader("F:/ProjectDirectory/ConsoleGrid/ConsoleGrid/Resources/Items.json"))
+            {
+                _items = JsonConvert.DeserializeObject<Item[]>(sr.ReadToEnd());
+            }
         }
 
         public static Item NewItem()
